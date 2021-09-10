@@ -5,7 +5,7 @@
 <p>Estrelas: {{ livro.rating | number:'1.1-1' }}</p>
 <p>Páginas: {{ livro.numeroPaginas }}</p>
 <p>Preço: {{ livro.preco | currency:'BRL':true }}</p>
-<p>Data Lançamento: {{ livro.dataLancamento | date:'dd-MMM-yyyy' }}</p>
+<p>Data Lançamento: {{ livro.dataLancamento | date }}</p>
 <p>Url: {{ livro.url }}</p>
 <br>
 <p>Livro: {{ livro | json }}</p> <!-- o pipe json é muito bom para debug de valores vindos do back-end que devem ser mostrados no front -->
