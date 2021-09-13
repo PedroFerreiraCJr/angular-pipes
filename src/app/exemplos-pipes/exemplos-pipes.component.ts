@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { interval } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-exemplos-pipes',
   templateUrl: './exemplos-pipes.component.html',
@@ -22,6 +25,18 @@ export class ExemplosPipesComponent implements OnInit {
     'Java',
     'Angular 2'
   ];
+
+  // Este é um exemplo que foi utilizado para demonstrar o uso do pipe async fazendo uso
+  //dos conceitos de Promise do JavaScript.
+  valorAsync = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Valor assíncrono');
+    }, 2000);
+  });
+
+  // Este é um exemplo que foi utilizado para demonstrar o uso do pipe async fazendo uso
+  //dos conceitos de programação reativa com Observable da lib rxjs.
+  valorAsync2 = interval(2000).pipe(map(() => 'Valor assíncrono 2'));
 
   constructor() { }
 
