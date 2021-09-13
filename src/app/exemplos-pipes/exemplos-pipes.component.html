@@ -1,5 +1,5 @@
 <!-- Os pipes servem para transformar os dados e o resultado pode ser visualizado no template -->
-<h5>Exemplos de Pipes</h5>
+<h2>Exemplos de Pipes</h2>
 
 <p>Título: {{ livro.titulo | uppercase | lowercase | camelCase }}</p> <!-- exemplo de pipe aninhado -->
 <p>Estrelas: {{ livro.rating | number:'1.1-1' }}</p>
@@ -9,3 +9,15 @@
 <p>Url: {{ livro.url }}</p>
 <br>
 <p>Livro: {{ livro | json }}</p> <!-- o pipe json é muito bom para debug de valores vindos do back-end que devem ser mostrados no front -->
+
+<!-- exemplo de pipe que filtra um array -->
+<!-- vale lembrar que este tipo de feature não deve ser utilizado em produção, o proprio time do angular desaconselha -->
+<input type="text" [(ngModel)]="filtro" />
+<br>
+<input type="text" #novoValor>
+<button (click)="addCurso(novoValor.value)">Add Curso</button>
+<ul>
+  <li *ngFor="let liv of livros | filtroArray:filtro">
+    {{ liv }}
+  </li>
+</ul>
