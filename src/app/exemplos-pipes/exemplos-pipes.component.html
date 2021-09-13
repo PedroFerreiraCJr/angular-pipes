@@ -10,14 +10,32 @@
 <br>
 <p>Livro: {{ livro | json }}</p> <!-- o pipe json é muito bom para debug de valores vindos do back-end que devem ser mostrados no front -->
 
-<!-- exemplo de pipe que filtra um array -->
-<!-- vale lembrar que este tipo de feature não deve ser utilizado em produção, o proprio time do angular desaconselha -->
 <input type="text" [(ngModel)]="filtro" />
 <br>
 <input type="text" #novoValor>
 <button (click)="addCurso(novoValor.value)">Add Curso</button>
+
+<!-- exemplo de pipe que filtra um array -->
+<!-- vale lembrar que este tipo de feature não deve ser utilizado em produção, o proprio time do angular desaconselha -->
+<h2>Pipe Puro</h2>
 <ul>
-  <li *ngFor="let liv of livros | filtroArray:filtro">
+  <li *ngFor="let liv of livros | filtroArrayPuro:filtro">
+    {{ liv }}
+  </li>
+</ul>
+
+<!-- este exemplo utiliza um pipe impuro, que simplesmente utiliza o metadado pure: true -->
+<h2>Pipe Impuro</h2>
+<ul>
+  <li *ngFor="let liv of livros | filtroArrayImpuro:filtro">
+    {{ liv }}
+  </li>
+</ul>
+
+<!-- esta é a forma considerada mais correta para fazer filtros de uma lista em um component -->
+<h2>Maneira correta de usar filtros nos projetos</h2>
+<ul>
+  <li *ngFor="let liv of obterCurso()">
     {{ liv }}
   </li>
 </ul>

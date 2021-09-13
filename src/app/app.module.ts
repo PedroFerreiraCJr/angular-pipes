@@ -10,7 +10,8 @@ import { AppComponent } from './app.component';
 import { ExemplosPipesComponent } from './exemplos-pipes/exemplos-pipes.component';
 import { CamelCasePipe } from './camel-case.pipe';
 import { SettingsService } from './settings.service';
-import { FiltroArrayPipePuro } from './filtro-array.pipe'; // exemplo de pipe puro
+import { FiltroArrayPuroPipe } from './filtro-array.pipe'; // exemplo de pipe impuro
+import { FiltroArrayImpuroPipe } from './filtro-array-impuro.pipe'; // exemplo de pipe puro
 
 // configuração adicional não feita na aula da Loiane
 registerLocaleData(ptBr)
@@ -20,9 +21,9 @@ registerLocaleData(ptBr)
   declarations: [
     AppComponent,
     ExemplosPipesComponent,
-    // declaração do pipe que foi criado
-    CamelCasePipe,
-    FiltroArrayPipePuro
+    CamelCasePipe,  // declaração do pipe que foi criado
+    FiltroArrayPuroPipe,    // declaração de pipe puro
+    FiltroArrayImpuroPipe   // declaração de pipe impuro
   ],
   // na seção de imports são declarados os módulos que devem ser importados para o módulo atual
   imports: [

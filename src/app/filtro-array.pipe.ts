@@ -8,9 +8,10 @@ import { Pipe, PipeTransform } from '@angular/core';
  * JavaScript como também valores que são mais complexos, como objetos e arrays.
  */
 @Pipe({
-  name: 'filtroArray'
+  name: 'filtroArrayPuro',
+  pure: true
 })
-export class FiltroArrayPipePuro implements PipeTransform {
+export class FiltroArrayPuroPipe implements PipeTransform {
 
   transform(value: any, ...args: any[]): any {
     if (value.length === 0 || args === undefined) {
